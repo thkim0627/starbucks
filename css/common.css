@@ -92,7 +92,7 @@ a {
 
 .btn.btn--white:hover {
   color: #333333;
-  border-color: #FFFFFF;
+  background-color: #FFFFFF;
 }
 
 .back-to-position {
