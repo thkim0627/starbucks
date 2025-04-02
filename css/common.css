@@ -1,0 +1,443 @@
+/* ------------------ 공통 ------------------ */
+body {
+  /* 폰트 색상 */
+  color: #333333;
+  /* 폰트 크기 */
+  font-size: 16px;
+  /* 폰트 두께 */
+  font-weight: 400;
+  /* 줄 높이 */
+  line-height: 1.4;
+  /* 구글 폰트(나눔고딕) 설정 */
+  font-family: "Nanum Gothic", sans-serif; 
+  /* 세로 높이 */
+  /* height: 3000px; */
+}
+
+img {
+  /* 이미지 태그는 기본적으로 inline 요소이지만, 이제부터 하나의 화면을 구성하는 레이아웃으로 활용하겠다는 의미 */
+  display: block;
+}
+
+a {
+  /* a 태그 밑줄 제거 */
+  text-decoration: none;
+}
+
+.inner {
+  /* 가로 너비 */
+  width: 1100px;
+  /* 외부 여백 (가운데 정렬) */
+  margin: 0 auto;
+  /* 로고 부모 요소 기준 설정 */
+  position: relative;
+}
+
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  /* a, span 태그에 btn 클래스를 입력했을때 정삭적으로 버튼이 나올 수 있도록 block으로 설정 */
+  display: block;
+  transition: 0.4s;
+}
+
+.btn:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.btn.btn--reverse {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.btn.btn--reverse:hover {
+  /* 원래 색상으로 변경 */
+  background-color: transparent;
+  color: #333333;
+}
+
+.btn.btn--brown {
+  color: #592B18;
+  border-color: #592B18;
+}
+
+.btn.btn--brown:hover {
+  color: #FFFFFF;
+  border-color: #592B18;
+}
+
+.btn.btn--gold {
+  color: #D9AA8A;
+  border-color: #D9AA8A;
+}
+
+.btn.btn--gold:hover {
+  color: #FFFFFF;
+  border-color: #D9AA8A;
+}
+
+.btn.btn--white {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.btn.btn--white:hover {
+  color: #333333;
+  background-color: #FFFFFF;
+}
+
+.back-to-position {
+  opacity: 0;
+  transition: 1s; 
+}
+
+.back-to-position.to-right {
+  transform: translateX(-150px);
+}
+
+.back-to-position.to-left {
+  transform: translateX(150px);
+}
+
+.show .back-to-position {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.show .back-to-position.delay-0 {
+  transition-delay: 0s;
+}
+.show .back-to-position.delay-1 {
+  transition-delay: 0.3s;
+}
+.show .back-to-position.delay-2 {
+  transition-delay: 0.6s;
+}
+.show .back-to-position.delay-3 {
+  transition-delay: 0.9s;
+}
+/* ------------------ 공통 ------------------ */
+
+/* ------------------ 헤더 ------------------ */
+
+/* 로고 */
+header {
+  width: 100%;
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+}
+
+header > .inner {
+  /* 세로 높이 */
+  height: 120px;
+}
+
+header .logo {
+  height: 75px;
+  /* 로고를 부모 요소 기준으로 수직 가운데로 배치를 하겠다는 의미 */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+/* 로고 */
+
+/* 서브 메뉴 */
+/* 메뉴 */
+header .sub-menu {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
+}
+
+header .sub-menu ul.menu {
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+header .sub-menu ul.menu li {
+  position: relative;
+}
+
+header .sub-menu ul.menu li::before {
+  /* 메뉴 사이의 구분선 생성 */
+  content: "";
+  display: block;
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+header .sub-menu ul.menu li:first-child::before {
+  /* 메뉴의 가장 왼쪽 구분선 제거 */
+  display: none;
+}
+
+header .sub-menu ul.menu li a {
+  font-size: 13px;
+  padding: 11px 16px;
+  display: block;
+  color: #656565;
+}
+
+header .sub-menu ul.menu li a:hover {
+  color: #000000;
+}
+/* 메뉴 */
+
+/* 통합검색 */
+header .sub-menu .search {
+  height: 34px;
+  position: relative;
+}
+
+header .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #CCCCCC;
+  /* box 사이즈 padding, border 등 다 합해서 width(36px) 에서 설정 된 크기 만큼 지정 */
+  box-sizing: border-box;
+  border-radius: 5px;
+  /* input 창 클릭했을때 테두리 선 제거 */
+  outline: none;
+  background-color: #FFFFFF;
+  color: #777777;
+  font-size: 12px;
+  transition: width 0.4s;
+}
+
+header .sub-menu .search input:focus { 
+  width: 190px;
+  /* 테두리 선 색상 */
+  border-color: #669900;
+}
+
+header .sub-menu .search .material-icons {
+  /* 부모 요소 기준으로 배치를 하겠다는 의미 */
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  transition: all 0.4s;
+}
+
+header .sub-menu .search.focused .material-icons {
+  opacity: 0;
+}
+/* 통합검색 */
+/* 서브 메뉴 */
+
+/* 메인 메뉴 */
+header .main-menu {
+  /* 위치상의 부모 요소 지정 */
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  z-index: 1;
+  /* 수평 정렬 */
+  display: flex;
+}
+
+header .main-menu .item {
+
+}
+
+header .main-menu .item .item__name {
+  padding: 10px 20px 34px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+/* 하위 메뉴 */
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul {
+  display: flex;
+  padding: 20px 0;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li {
+  width: 220px;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
+  color: #669900;
+}
+
+header .main-menu .item .item__contents .contents__texture {
+  padding: 26px 0;
+  font-size: 12px;
+  background-image: url('../images/main_menu_pattern.jpg');
+}
+
+header .main-menu .item .item__contents .contents__texture h4 {
+  color: #999999;
+  font-weight: 700;
+}
+
+header .main-menu .item .item__contents .contents__texture p {
+  color: #669900;
+  margin: 4px 0 14px;
+}
+/* 하위 메뉴 */
+
+/* 배지 메뉴 */
+header .badges {
+  /* 부모 요소인 header를 기준으로 배지 메뉴 절대 값 위치 지정 */
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+header .badges .badge {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+/* 배지 메뉴 */
+
+/* 메인 메뉴 */
+
+/* ------------------ 헤더 ------------------ */
+
+/* ------------------ 푸터 ------------------ */
+footer {
+  background-color: #272727;
+  border-top: 1px solid #333333;
+}
+
+footer .inner {
+  padding: 40px 0 60px 0;
+}
+
+footer .menu {
+  display: flex;
+  justify-content: center;
+}
+
+footer .menu li {
+  position: relative;
+}
+
+footer .menu li::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  background-color: #555555;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  margin: auto;
+}
+
+footer .menu li:last-child::before {
+  display: none;
+}
+
+footer .menu li a {
+  color: #CCCCCC;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 15px;
+  display: block;
+}
+
+footer .menu li a.green {
+  color: #669900;
+}
+
+footer .btn-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+footer .btn-group .btn {
+  font-size: 12px;
+  margin-right: 10px;
+}
+footer .btn-group .btn:last-child {
+  margin-right: 0;
+}
+
+footer .info {
+  margin-top: 30px;
+  text-align: center;
+}
+
+footer .info span {
+  margin-right: 20px;
+  color: #999999;
+  font-size: 12px;
+}
+
+footer .info span:last-child {
+  margin-right: 0;
+}
+
+footer .copyright {
+  color: #999999;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+footer .logo {
+  margin: 30px auto 0;
+}
+/* ------------------ 푸터 ------------------ */
